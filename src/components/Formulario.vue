@@ -1,15 +1,12 @@
 <script setup lang="ts">
 import {reactive, ref} from "vue"
+import type {Busqueda, Pais} from "@/helpers/Types";
 import Alerta from "@/components/Alerta.vue";
 
-type Pais = {
-  codigo: string;
-  nombre: string;
-}
-type Busqueda = {
-  pais: string;
-  ciudad: string;
-}
+const emit = defineEmits<{
+  (e: 'obtener-clima', payload: Busqueda): void
+}>()
+
 const error = ref<string>('')
 const paises: Pais[] = [
   {codigo: 'US', nombre: 'Estados Unidos'},
@@ -34,6 +31,7 @@ const consultarClima = (): void => {
     return
   }
   // Código para traer los datos de la API
+  emit('obtener-clima', busqueda)
 }
 </script>
 
