@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {computed, ref} from 'vue'
-import { type Ref } from 'vue'
+import {type Ref} from 'vue'
 import type {Busqueda} from '@/helpers/Types';
 
 export default function useClima() {
